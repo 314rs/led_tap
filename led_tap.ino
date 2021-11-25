@@ -25,7 +25,6 @@ int led_order[STRIPES][2] =
   {149,-30}
 };
 
-
 void setup() {
   delay(200); // sanity delay
   FastLED.addLeds<CHIPSET, LED_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
@@ -51,13 +50,9 @@ void loop() {
   for (int i = 0; i < STRIPES; i++) {
     generate(led_order[i][0], water);
   }
-
-
   FastLED.show();
   delay(10);
- 
 }
-
 
 void generate(int lednum, uint8_t amount) {
   if (random(5, 3500) < amount) {
